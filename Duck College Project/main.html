@@ -1,0 +1,306 @@
+<b><center>DUCK SCHOOL</center></b>
+    <style>
+        body {
+          background-image: url('correct_duck_title.gif');
+        }
+        </style>
+<center><button onclick="startFunction()" style="height:100px; width:250px;border: none; background: url(start_button.png)"></button></center>
+<button id= "button1" onclick="changeBackground()"  style ="height: 80px; width:300px; border: none;"hidden>Community College</button>
+<button id= "button2" onclick="changeBackground1()" style ="height: 80px; width:300px; border: none;"hidden>4 year 1</button>
+<button id= "button3" onclick="changeBackground2()" style ="height: 80px; width:300px; border: none;"hidden>4 year 2</button>
+<button id= "button4" onclick="changeBackground3()" style ="height: 80px; width:300px; border: none;"hidden>trade school 1</button>
+<button id= "button5" onclick="changeBackground4()" style ="height: 80px; width:300px; border: none;"hidden>trade school 2</button>
+<center><p>Score to win: 7</p></center>
+<center><p id="score"></p></center>
+<center><p id="stress_level"></p></center>
+<center><p id="GPA"></p></center>
+<script>
+
+function changeBackground() {
+document.body.style["background-image"] = "url('ezgif-4-5879dea53b.gif')";
+}
+function changeBackground1() {
+document.body.style["background-image"] = "url('fouryear1.gif')";
+}
+function changeBackground2() {
+document.body.style["background-image"] = "url('fouryear2.gif')";
+}
+function changeBackground3() {
+document.body.style["background-image"] = "url('trade1.gif')";
+}
+function changeBackground4() {
+document.body.style["background-image"] = "url('trade2.gif')";
+}
+function startFunction() {
+document.body.style["background-image"] = "url('classroom.gif')";
+let score_to_win = 0;
+alert("Welcome to DUCK HIGHSCHOOL! During this experience, you will earn about the three post-secondary schools; but first, we start in Sophomore Year !");
+var ap_choice = window.prompt("It is Sophomore Year! This is the first time you get to pick which AP classes you want to take. How many would you like to take? A. 0 B. 1 C. 2 D. 3");
+if (ap_choice == "A" || ap_choice == "a" || ap_choice == "0") {
+	alert("Nice, you decided not to take any AP classes this year. This may affect your chances at getting into a good college, as the amount of AP's you take do affect your chances of acceptance. But if you think it is good for you, then go ahead!");
+  
+	} else if (ap_choice == "B" || ap_choice == "b" || ap_choice == "1") {
+	alert("Good, you chose to take an AP class this year! Just be sure that you do your homework and study for your tests, and you should be fine! Just watch out for that final test!");
+  score_to_win++
+  
+	} else if (ap_choice == "C" || ap_choice == "c" || ap_choice == "2") {
+  alert("Good job, you chose to take 2 AP classes this year! The average recommended amount is 2 AP classes in Sophomore year, so you are doing great! Just be sure to study for both tests!");
+  score_to_win += 2
+  
+  } else if (ap_choice == "D" || ap_choice == "d" || ap_choice == "3") {
+  alert("Nice, you are doing 3 AP classes this year! Just be sure you are not overextending yourself, as you want to get a high score on your exam to be able to show it to the college you apply for.");
+  score_to_win += 3
+  
+  }
+  document.getElementById("score").innerText = "Score: " + score_to_win;
+  document.getElementById("stress_level").innerText = "Stress level: " + score_to_win;
+  document.getElementById("GPA").innerText = "GPA: " + 3.8;
+  let GPA = 3.8;
+  let stress_levels = score_to_win;
+  
+//end of beginning event
+let list_of_events = ["Relationship","Volunteer Hours","Internship","Scholarship","Field trip","Competition","Your GPA drops"];
+var random_num = Math.floor(Math.random() * 6);
+var random_event1 = list_of_events[random_num];
+function relationshipFunction(){
+ let relationship_boolean = window.prompt("Congrats! Apparantly you had enough social skills to get yourself a partner! Do you accept: Y. Yes N. No");
+ if (relationship_boolean == "Y" || relationship_boolean == "y" || relationship_boolean == "yes" || relationship_boolean == "Yes") {
+ alert("Congrats! You now have a partner! However, because of that you now have a lower GPA due to the amount of time you spend with your partner. Your stress levels decrease as well.")
+ stress_levels -= 1;
+ GPA -= 0.5;
+		 } else if (relationship_boolean == "N" || relationship_boolean == "n" || relationship_boolean == "no" || relationship == "No") {
+     alert("Though you might not like it, your grades matter more than your personal life. However, because of this your GPA increases!");
+     GPA += 0.2
+     }
+	}
+  //end of relationship function
+  function extra_volunteer_hours() {
+  let volunteer_boolean = window.prompt("Congrats! You just received a volunteer opportunity, do you accept? Y: Yes N: No");
+  if (volunteer_boolean == "Y" || volunteer_boolean == "y" || volunteer_boolean == "yes" || volunteer_boolean == "Yes") {
+  alert("You accepted the volunteer opurtunity! You now have a higher chance to get into college. ");
+  score_to_win++
+  } else if(volunteer_boolean == "N" || volunteer_boolean == "n" || volunteer_boolean == "no" || volunteer_boolean == "No") {
+  alert("You rejected the volunteer opurtunity. Well, at least someone who wanted to go can now go.");
+  	}
+  }
+  //end of volunteer hours function
+  function internship_role() {
+  let internship_yn = window.prompt("Good job, a company has realised your potential and if offering you an internship at their company. This will greatly increase your score, as well as your stress level. Do you accept? Y. yes N. no");
+  if (internship_yn == "y" || internship_yn == "Y" || internship_yn == "yes" || internship_yn == "Yes") {
+  alert("Good, you now have a much higher chance to get into college! However, your stress level has now increased.");
+  score_to_win += 3
+  stress_levels += 2
+  }
+  }
+  //end of internship function
+  function scholarship_event() {
+  let scholarship_yn = window.prompt("Good news, you found a scholarship willing to give money if you write an essay on why you should get it. Do you accept? Y. Yes N. No");
+  if (scholarship_yn == "Y" || scholarship_yn == "y" || scholarship_yn == "yes" || scholarship_yn == "Yes") {
+  let random_scholarship = Math.floor(Math.random()*1);
+  	if (random_scholarship == 0) {
+    alert("Nice, you now have a scholarship, which relives some of your stress of paying college fees.");
+    stress_levels--
+    } else if (random_scholarship == 1) {
+    alert("Unfortunately, you did not win the competition. Your stress levels increase. ");
+    stress_levels++
+    	}
+  	} else if (scholarship_yn == "N" || scholarship_yn == "n" || scholarship_yn == "no" || scholarship_yn == "No") {
+    alert("You did not choose to write the essay, but in turn your stress levels did not increase. ");
+    }
+  }
+  //end of scholarship function
+  function field_trip_event() {
+  let fieldtrip_yn = window.prompt("Your school is offering college field trips. You see 2 colleges, a prestigious one, and one you are aiming for. Which do you go for? Y. Prestigous N. Aiming for");
+  if (fieldtrip_yn == "y" || fieldtrip_yn == "Y" || fieldtrip_yn == "Yes" || fieldtrip_yn == "yes") {
+  	alert("You decided to go to the prestigous college. Unfortunately, you don't plan to go there, not after reading the tuition price per year...");
+  	} else if (fieldtrip_yn == "n" || fieldtrip_yn == "N" || fieldtrip_yn == "no" || fieldtrip_yn == "No") {
+    alert("You have now gained more information, and you find out more information which relives you of some stress. ");
+    stress_levels -= 1
+    }
+  }
+  //end of field trip function
+  function competition_function() {
+  let competition_yn = window.prompt("You hear from one of your friends about a competition, and they are looking for a team. Do you join them? Y. Yes N. No");
+  if (competition_yn == "Y" || competition_yn == "y" || competition_yn == "Yes" || competition_yn == "yes") {
+  alert("Congratulations, because you decided to join, you have won the competition! You now have a higher chance of getting into a good college. ");
+  score_to_win += 2
+  	} else if(competition_yn == "n" || competition_yn == "N" || competition_yn == "no" || competition_yn == "No") {
+    alert("Your friends found another memeber to join their team, and they won the competition. Your mom is now berating you about not joining, increasing your stress levels. ");
+    stress_levels++
+    }
+  }
+  //end of competition function
+  function GPA_drop() {
+  let GPA_yn = window.prompt("Because of the increase in homework amount and dificulty, your GPA has dropped. Do you spend more time, or leave it be? Y. Yes N. No");
+  if (GPA_yn == "Y" || GPA_yn == "y" || GPA_yn == "yes" || GPA_yn == "Yes") {
+  alert("Your GPA stays the same thanks to your efforts, however your stress level goes up.");
+  stress_levels++
+  	} else if (GPA_yn == "n" || GPA_yn == "N" || GPA_yn == "no" || GPA_yn == "No") {
+    alert("You decide to let it be, and your GPA drops. ");
+    GPA -= 0.3
+    }
+  }
+  // end of GPA drop event
+  function AP_exams() {
+  alert("With AP exams nearing, your stress level increases.")
+  stress_levels += 2
+  }
+  //end of AP exams event
+  function AP_exams_end() {
+  alert("Your AP exams end, your stress levels back to normal.");
+  stress_levels -= 2
+  }
+  //end of AP exams end event
+  function AP_classes() {
+  let total_ap = window.prompt("How many AP's do you take this year?");
+  score_to_win += total_ap;
+  }
+  //Enter events time
+  //First half
+  if (random_event1 == list_of_events[0]) {
+  relationshipFunction();
+  } else if (random_event1 == list_of_events[1]) {
+  extra_volunteer_hours();
+  } else if (random_event1 == list_of_events[2]) {
+  internship_role();
+  } else if (random_event1 == list_of_events[3]) {
+  scholarship_event();
+  } else if (random_event1 == list_of_events[4]) {
+  field_trip_event();
+  } else if(random_event1 == list_of_events[5]) {
+  competition_function();
+  } else if (random_event1 == list_of_events[6]) {
+  GPA_drop();
+  }
+  alert("Did you know: Trade Schools specify on 1 subject. This means that you will be able to get a cheaper education than a normal 4 year college, work while you learn, and start working earlier than a normal college student. However, some drawbacks are that they only teach you 1 subject, so if something happens to your type of work, you will be more affected than if that happens to a normal college student.");
+   document.getElementById("score").innerText = "Score: " + score_to_win;
+  document.getElementById("stress_level").innerText = "Stress level: " + stress_levels;
+  document.getElementById("GPA").innerText = "GPA: " + GPA;
+  //Second event run
+  let random_num1 = Math.floor(Math.random()*6);
+  let random_event2 = list_of_events[random_num1];
+  if (random_event2 == list_of_events[0]) {
+  relationshipFunction();
+  } else if (random_event2 == list_of_events[1]) {
+  extra_volunteer_hours();
+  } else if (random_event2 == list_of_events[2]) {
+  internship_role();
+  } else if (random_event2 == list_of_events[3]) {
+  scholarship_event();
+  } else if (random_event2 == list_of_events[4]) {
+  field_trip_event();
+  } else if(random_event2 == list_of_events[5]) {
+  competition_function();
+  } else if (random_event2 == list_of_events[6]) {
+  GPA_drop();
+  }
+  alert("Did you know: Community College is a great alternative to a 4 year college. You can save money, build successful learning strategies, and eventually transfer to a normal 4 year college after 2 years. Some drawbacks are lack of campus life, fewer networking oppurtunities, and limited courses offered.");
+  document.getElementById("score").innerText = "Score: " + score_to_win;
+  document.getElementById("stress_level").innerText = "Stress level: " + stress_levels;
+  document.getElementById("GPA").innerText = "GPA: " + GPA;
+  //Third event run
+  let random_num2 = Math.floor(Math.random()*6);
+  let random_event3 = list_of_events[random_num2];
+  if (random_event3 == list_of_events[0]) {
+  relationshipFunction();
+  } else if (random_event3 == list_of_events[1]) {
+  extra_volunteer_hours();
+  } else if (random_event3 == list_of_events[2]) {
+  internship_role();
+  } else if (random_event3 == list_of_events[3]) {
+  scholarship_event();
+  } else if (random_event3 == list_of_events[4]) {
+  field_trip_event();
+  } else if(random_event3 == list_of_events[5]) {
+  competition_function();
+  } else if (random_event3 == list_of_events[6]) {
+  GPA_drop();
+  }
+  alert("Did you know: A 4 year college has many benefits. One of these is the ability to easily apply to get an advanced degree. A 4 year college also gives students knowledge on a greater variety of things, with majors and minors being examples of the diversity of subjects. Some drawbacks are that it is expensive, takes longer than a trade school or community college. ");
+   document.getElementById("score").innerText = "Score: " + score_to_win;
+  document.getElementById("stress_level").innerText = "Stress level: " + stress_levels;
+  document.getElementById("GPA").innerText = "GPA: " + GPA;
+  //Fourth event run
+  let random_num3 = Math.floor(Math.random()*6);
+  let random_event4 = list_of_events[random_num3];
+  if (random_event4 == list_of_events[0]) {
+  relationshipFunction();
+  } else if (random_event4 == list_of_events[1]) {
+  extra_volunteer_hours();
+  } else if (random_event4 == list_of_events[2]) {
+  internship_role();
+  } else if (random_event4 == list_of_events[3]) {
+  scholarship_event();
+  } else if (random_event4 == list_of_events[4]) {
+  field_trip_event();
+  } else if(random_event4 == list_of_events[5]) {
+  competition_function();
+  } else if (random_event4 == list_of_events[6]) {
+  GPA_drop();
+  }
+  alert("Did you know: AP classes are important to your college applications. Now that in California they stopped requiring the SAT, AP classes now count for credit more than ever.");
+  document.getElementById("score").innerText = "Score: " + score_to_win;
+  document.getElementById("stress_level").innerText = "Stress level: " + stress_levels;
+  document.getElementById("GPA").innerText = "GPA: " + GPA;
+  //Fifth event run
+  let random_num4 = Math.floor(Math.random()*6);
+  let random_event5 = list_of_events[random_num4];
+  if (random_event5 == list_of_events[0]) {
+  relationshipFunction();
+  } else if (random_event5 == list_of_events[1]) {
+  extra_volunteer_hours();
+  } else if (random_event5 == list_of_events[2]) {
+  internship_role();
+  } else if (random_event5 == list_of_events[3]) {
+  scholarship_event();
+  } else if (random_event5 == list_of_events[4]) {
+  field_trip_event();
+  } else if(random_event5 == list_of_events[5]) {
+  competition_function();
+  } else if (random_event5 == list_of_events[6]) {
+  GPA_drop();
+  }
+  alert("Did you know: Now that schools are more competitive, a 4.0 GPA is almost always required to get into good colleges. For example, a 4.3 GPA is needed for a computer science degree at UC Berkeley.")
+  document.getElementById("score").innerText = "Score: " + score_to_win;
+  document.getElementById("stress_level").innerText = "Stress level: " + stress_levels;
+  document.getElementById("GPA").innerText = "GPA: " + GPA;
+  //Sixth event run
+  let random_num5 = Math.floor(Math.random()*6);
+  let random_event6 = list_of_events[random_num5];
+   if (random_event5 == list_of_events[0]) {
+  relationshipFunction();
+  } else if (random_event6 == list_of_events[1]) {
+  extra_volunteer_hours();
+  } else if (random_event6 == list_of_events[2]) {
+  internship_role();
+  } else if (random_event6 == list_of_events[3]) {
+  scholarship_event();
+  } else if (random_event6 == list_of_events[4]) {
+  field_trip_event();
+  } else if(random_event6 == list_of_events[5]) {
+  competition_function();
+  } else if (random_event6 == list_of_events[6]) {
+  GPA_drop();
+  }
+  document.getElementById("score").innerText = "Score: " + score_to_win;
+  document.getElementById("stress_level").innerText = "Stress level: " + stress_levels;
+  document.getElementById("GPA").innerText = "GPA: " + GPA;
+  if (score_to_win >= 7 && stress_levels < 15 && GPA >= 3.8) {
+  alert("Congrats, you won!");
+  } else if (score_to_win >= 7 && stress_levels > 15 && GPA >= 3.8) {
+  alert("You got accepted and got the GPA, but you have finally burnt out. It will be hard for you in college.");
+  } else if (score_to_win < 7 && stress_levels < 15 && GPA >= 3.8) { 
+  alert("You had a high GPA and low stress levels, but you did not look appealing enough to the colleges. You will now have to find another option.");
+} else if (score_to_win >= 7 && stress_levels < 15 && GPA < 3.8) {
+ alert("You focused too much on your life and extracurriculars, but not enough to your GPA.");
+	} else {
+  alert("You lost!");
+  }
+  button1.removeAttribute("hidden");
+  button2.removeAttribute("hidden");
+  button3.removeAttribute("hidden");
+  button4.removeAttribute("hidden");
+  button5.removeAttribute("hidden");
+  button6.removeAttribute("hidden");
+}
+</script>
